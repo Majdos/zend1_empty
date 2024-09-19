@@ -1,0 +1,11 @@
+<h1>Edit User</h1>
+
+<?php if ($this->form): ?>
+    <!-- Display the form -->
+    <form action="<?php echo $this->url(array('action' => 'edit', 'id' => $this->form->getElement('id')->getValue())); ?>" method="post">
+        <?php echo $this->form; ?>
+    </form>
+<?php else: ?>
+    <!-- Message if no form is available -->
+    <p>No form available for editing.</p>
+<?php endif; ?>

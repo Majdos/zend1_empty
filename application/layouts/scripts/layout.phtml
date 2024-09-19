@@ -1,0 +1,33 @@
+<?php
+// Assuming you have a method to check if the user is authenticated
+$auth = Zend_Auth::getInstance();
+$identity = $auth->getIdentity();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+   <?php echo $this->headTitle(); ?>
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->headLink(); ?>
+    <?php echo $this->headScript(); ?>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <header>
+        <h1>My Website </h1>
+        <?php if ($auth->hasIdentity()): ?>
+            <p>Welcome, <?php echo $identity->email; ?>!</p>
+            <a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'logout'), null, true); ?>">Logout</a>
+       
+        <?php endif; ?>
+    </header>
+    <div id="content">
+        <?php echo $this->layout()->content; ?> <!-- This is where the view content will be inserted -->
+    </div>
+    <footer>
+        <p>&copy; <?php echo date('Y'); ?> My Website</p>
+    </footer>
+</body>
+</html>

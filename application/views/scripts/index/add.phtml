@@ -1,0 +1,11 @@
+<h1>Add New User</h1>
+
+<?php if ($this->form){?>
+    <!-- Display the form -->
+    <form action="<?php echo $this->url(array('action' => 'add')); ?>" method="post">
+        <?php echo $this->form; ?>
+    </form>
+<?php } else { ?>
+    <!-- Message if no form is available -->
+    <p>No form available for adding a new user.</p>
+<?php } ?>
